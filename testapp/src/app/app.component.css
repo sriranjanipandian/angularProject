@@ -1,3 +1,4 @@
+/* to change color when invalid and empty: */
 input.ng-invalid.ng-touched{
     border: 1px solid red;
     

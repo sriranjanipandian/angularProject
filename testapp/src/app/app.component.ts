@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit} from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit {
   i1;
   s;
   result=[];
+  // textbox for add and remove
   enter(event:any){
   
     if (event.keyCode==13){
@@ -19,6 +21,7 @@ export class AppComponent implements OnInit {
     this.ip=' ';
    }
   }
+  // adding element
   add() 
    {
     //  this.result=this.ip + this.result;
@@ -31,6 +34,7 @@ export class AppComponent implements OnInit {
     }
      this.ip=' ';
    }
+  //  removing a particular element
    remove(i1:any)
    {
      this.s=this.result.indexOf(i1);
@@ -40,11 +44,13 @@ export class AppComponent implements OnInit {
   //  {
   //    console.log(form);
   //  }
+//  To validate username and email:
    ngOnInit(){
      this.signupForm=new FormGroup({
        'username':new FormControl(null,Validators.required),'email': new FormControl(null,[Validators.required,Validators.email])
      });
     }
+  // for submit button:
     onsubmit(){
       
       console.log(this.signupForm);

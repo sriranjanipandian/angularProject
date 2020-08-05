@@ -1,4 +1,5 @@
 <div class="container">
+<!-- routing -->
 <a routerLink = '/course'>course</a>&nbsp;&nbsp;
 <a routerLink = '/student'>student</a>&nbsp;&nbsp;
 <a routerLink = '/staff'>staff</a><br><br>
@@ -6,11 +7,14 @@
 <!-- <button  [disabled]="buttonstatus"> click</button>
   <input type="text" id='text1' (change)="changeworks($event)"> -->
 
+<!-- form add and remove -->
+<!-- for adding element you can press enter key -->
 <input type="text" [(ngModel)]="ip" (keyup)='enter($event)'>&nbsp;&nbsp;
 <button class="btn btn-primary"(click)='add()'>add</button>
 {{result}}
 <ul><li *ngFor= "let i of result" >{{i}}<button (click)='remove(i)'>X</button></li></ul>
 
+<!-- template forms: -->
 <!-- <form (ngSubmit)="onsubmit(f)" #f=ngForm>
     <div class="form-group" >
     <input type="text" id="username" class="form-control" ngModel name="username" required>
@@ -21,13 +25,16 @@
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!f.valid">submit</button>
 </form> -->
+<!-- reactive forms: -->
 <form [formGroup]="signupForm"  (ngSubmit)="onsubmit()">
     <div class="form-group" >
        <input type="text" class="form-control"  name="username" formControlName="username" >
+       <!-- validates -->
        <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched " class="help-block" >Please enter a valid username!!</span>
     </div>
     <div class="form-group" >
         <input type="email" class="form-control"  name="email" formControlName="email">
+        <!-- validates -->
         <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched " class="help-block" >Please enter a valid email!!</span>
     </div>
     <button type="submit">submit</button>
